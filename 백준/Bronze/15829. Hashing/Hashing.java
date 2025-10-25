@@ -9,16 +9,16 @@ public class Main {
         sc.nextLine();
         String sentence = sc.nextLine();
 
-        int sum = 0;
+        long sum = 0;
         List<String> words = List.of(sentence.split(""));
 
         for (int i = 0; i < L; i++) {
             char word = words.get(i).charAt(0);
-            int temp = 1;
+            long temp = 1;
             for (int j = 0; j < i; j++) {
-                temp *= 31;
+                temp = (temp * 31) % 1234567891;
             }
-            sum += temp * (word - 96);
+            sum = (sum + temp * (word - 96)) % 1234567891 ;
         }
         System.out.println(sum);
     }
