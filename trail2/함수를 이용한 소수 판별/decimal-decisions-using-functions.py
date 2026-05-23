@@ -1,0 +1,21 @@
+a, b = map(int, input().split())
+
+# Please write your code here.
+total = 0
+
+def prime_number(i):
+    is_prime = True
+    for a in range(2, i):
+        if i % a == 0: # 소수가 아닐 때
+            is_prime = False
+            break
+        else: # 소수일 때
+            is_prime = True
+    return is_prime
+
+for i in range(a, b+1):
+    if prime_number(i): # 소수일 때
+        total += i
+
+print(total)
+
